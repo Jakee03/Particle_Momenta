@@ -47,3 +47,23 @@ Particle& Particle::operator=(const Particle& other) {
 
     return *this;
 }
+
+//move constructor
+Particle::Particle(Particle&& other) noexcept : name(std::move(other.name)), four_momentum(other.four_momentum) {
+    std::cout << "Calling Move Constructor" << std::endl;
+    other.four_momentum = nullptr; // prevent double delete
+}
+
+//move assignment operator
+Particle& Particle::operator=(Particle&& other) noexcept {
+    std::cout <<"Calling Move Assignment Operator" << std::endl;
+    if (this == &other) return *this;
+
+    delete four_momentum;
+
+    name = std::move(other.name);
+    four_momentum = other.four_momentum;
+    other.four_momentum = nullptr;
+
+    return *this;
+}
