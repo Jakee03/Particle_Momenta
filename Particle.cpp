@@ -83,8 +83,14 @@ void Particle::setPx(double px) { (*four_momentum)[1] = px; }
 void Particle::setPy(double py) { (*four_momentum)[2] = py; }
 void Particle::setPz(double pz) { (*four_momentum)[3] = pz; }
 
+//physics
 //sum 4-vecs
 Particle Particle::operator+(const Particle& other) const {
-    double spatial = (getPx()*other.getPx() + getPy()*other.getPy() + getPz()*other.getPz());
+    return Particle("Sum", getE() + other.getE(), getPx() + other.getPx(), getPy() + other.getPy(), getPz() + other.getPz());
+}
+
+//dot product
+double Particle::dotProduct(const Particle& other) const {
+    double spatial = (getPx() * other.getPx()) + (getPy() * other.getPy()) + (getPz() * other.getPz());
     return (getE() * other.getE()) - spatial;
 }
