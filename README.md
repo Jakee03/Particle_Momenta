@@ -1,8 +1,11 @@
-Compiler line: 
+# Particle Physics Simulation: Assignment 4
+**Author:** Jacob Fairham
 
-g++ -o  Assignment4 main.cpp Particle.h Particle.cpp
+##Compilation Line
 
-This is a program written by Jake Fairham designed to simulate basic Standard Model particles (electrons, muons, tauons) and their kinematics using four-momentum.
+g++ -Wall -o  Assignment4 main.cpp Particle.h Particle.cpp
+
+This is a program designed to simulate basic Standard Model particles (electrons, muons, tauons) and their kinematics using four-momentum.
 
 The Minkowski metric and natural units (c=1) are used in the calculations and energy must be non-negative.
 
