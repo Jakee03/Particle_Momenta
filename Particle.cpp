@@ -28,3 +28,22 @@ Particle::~Particle() {
     std::cout << "Calling Destructor" << std::endl;
     delete four_momentum;
 }
+
+//copy constructor
+Particle::Particle(const Particle& other) : name(other.name) {
+    std::cout << "Calling Copy Constructor" << std::endl;
+    four_momentum = new std::vector<double>(*other.four_momentum);
+}
+
+//copy assignment operator
+Particle& Particle::operator=(const Particle& other) {
+    std::cout << "Calling Copy Assignment Operator" << std::endl;
+    if (this == &other) return *this; // self-assignment check
+
+    delete four_momentum;
+
+    name = other.name;
+    four_momentum = new std::vector<double>(*other.four_momentum);
+
+    return *this;
+}
