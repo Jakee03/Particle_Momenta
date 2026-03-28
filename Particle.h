@@ -17,7 +17,7 @@ public:
     //default constructor
     Particle();
     //parameterized constructor
-    Particle(std::string name, double E, double px, double py, double pz);
+    Particle(std::string p_name, double E, double px, double py, double pz);
     //Ro5
     //destructor
     ~Particle();
