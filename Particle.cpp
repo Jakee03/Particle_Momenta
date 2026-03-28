@@ -13,8 +13,13 @@ Particle::Particle() : name("unknown"), four_momentum(new std::vector<double>(4,
 //parameterized constructor
 Particle::Particle(std::string p_name, double E, double px, double py, double pz) {
     std::cout << "Calling Parameterised Constructor" << std::endl;
-    //add validation here later
-    
+    if (E < 0) {
+    throw std::invalid_argument("Energy cannot be negative");
+}
+    if (p_name != "electron" && p_name != "muon" && p_name != "tau") {
+        throw std::invalid_argument("Invalid SM particle name. Must be electron, muon, or tau.");
+}
+
 
     name = p_name;
     four_momentum = new std::vector<double>();
